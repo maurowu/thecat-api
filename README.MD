@@ -2,20 +2,9 @@
 
 Micro serviço que coleta as informações da API de gatos (https://thecatapi.com/), realiza a carga de dados (informações sobre a raça e imagens) e disponibiliza APIS de busca para consumo externo.
 
-## Índice
-
-<!--ts-->
-   * [Documentação do Projeto] (#Documentação-do-Projeto)
-   * [Dicionário de dados] (#Dicionário-de-dados)
-   * [Documentação das APIS] (#Documentação-das-APIS)
-   * [Documentação da Arquitetura] (#Documentação-da-Arquitetura)
-   * [HOWTO - subida do serviço em ambiente local] (#HOWTO---subida-do-serviço-em-ambiente-local)
-   * [Manual - Elasticsearch ] (#Manual---Elasticsearch )
-   * [Manual - Prometheus] (#Manual---Prometheus)
-   * [Manual - Grafana Dashboard] (#Manual---Grafana-Dashboard)
-<!--te-->
-
 ## Documentação do Projeto
+
+
 
 ## Dicionário de dados
 catId       -> Id da raça do gato
@@ -132,5 +121,57 @@ O serviço estará disponível no caminho "http://localhost:8080/thecat/".
 
 ## Manual - Prometheus
 
+### Instalação
+
+Criar um arquivo com o nome "prometheus.yml" onde será configurado o serviço que será obtidos as métricas.
+
+Exemplo:
+
+scrape_configs:
+  - job_name: 'spring_micrometer'
+    metrics_path: '/thecat/actuator/prometheus'
+    scrape_interval: 1s
+    static_configs:
+      - targets: ['IPDAMAQUINA:8080']
+	  
+Trocar a palavra IPDAMAQUINA pelo IP de sua máquina.
+
+Executar o comando "docker run -d -p 9090:9090 -v C:\Users\mauro\Desktop\Prometheus\prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus".
+
+O caminho C:\Users\mauro\Desktop\Prometheus\prometheus.yml deve ser trocado pelo caminho onde consta o arquivo "prometheus.yml" em sua máquina.
+
+O Prometheus irá subir localmente a partir do link "http://localhost:9090/".
+
+### Utilização
+
+Será utilizado o "Micrometer" para enviar métricas para o Prometheus. A partir do link anterior, podemos listar as métricas e gerar gráficos obtidos no serviço thecat-api. Iremos utilizar o Grafana para gerar os dashboards com as métricas.
+
 ## Manual - Grafana Dashboard
+
+### Instalação
+
+Executar o comando "docker run -d -p 3000:3000 grafana/grafana".
+
+O Grafana irá subir localmente a partir do link "http://localhost:3000/".
+
+O primeiro acessso deve ser realizado com usuário admin e senha admin o qual pode ser alterado em seu primeiro login.
+
+### Utilização
+
+Como estamos utilizando o Prometheus como fonte das métricas, devemos incluir ele como "Data Source" no Grafana. Para isto, devemos seguir conforme abaixo:
+
+1. Ir para "Configuration"
+2. Clicar em "Add data source"
+3. Escolher Prometheus
+3. Alterar o campo "Url" para "http://IPDAMAQUINA:9090" o qual deve ser alterado a palavra IPDAMAQUINA para o IP da sua máquina.
+4. Alterar o campo "Access" para "Browser"
+5. Alterar o campo "Scrape interval" para o tempo de atualização das métricas
+6. Clicar em salvar.
+
+Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário importar a configuração nas opções Dashboard e depois Import.
+
+1. Dashboard de Quantidade de execução ~\projectDocuments\execucao_dashboard.json
+2. Dashboard de Quantidade de error ~\projectDocuments\erros_dashboard.json
+3. Dashboard de Latência ~\projectDocuments\execucao_dashboard.json
+
 
