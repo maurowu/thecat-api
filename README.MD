@@ -2,6 +2,17 @@
 
 Micro serviço que coleta as informações da API de gatos (https://thecatapi.com/), realiza a carga de dados (informações sobre a raça e imagens) e disponibiliza APIS de busca para consumo externo.
 
+
+## Índice
+* [Documentação do Projeto](#Documentação-do-Projeto)
+* [Dicionário de dados](#dados)
+* [Documentação das APIS](#APIS)
+* [Documentação da Arquitetura](#Arquitetura)
+* [HOWTO - subida do serviço em ambiente local](#HOWTO)
+* [Manual - Elasticsearch](#Elasticsearch)
+* [Manual - Prometheus](#Prometheus)
+* [Manual - Grafana](#Grafana)
+
 ## Documentação do Projeto
 
 
@@ -168,7 +179,7 @@ Como estamos utilizando o Prometheus como fonte das métricas, devemos incluir e
 5. Alterar o campo "Scrape interval" para o tempo de atualização das métricas
 6. Clicar em salvar.
 
-Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário importar a configuração nas opções Dashboard e depois Import.
+Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário importar a configuração nas opções Dashboard e depois Import no Grafana.
 
 1. [Dashboard de Quantidade de execução](./projectDocuments/execucao_dashboard.json)
 2. [Dashboard de Quantidade de erros](./projectDocuments/erros_dashboard.json)
