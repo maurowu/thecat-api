@@ -5,14 +5,15 @@ Micro serviço que coleta as informações da API de gatos (https://thecatapi.co
 ## Índice
 
 <!--ts-->
-   * [Documentação do Projeto] (#Documentação do Projeto)
-   * [Dicionário de dados] (#Dicionário de dados)
-   * [Documentação das APIS] (#Documentação das APIS)
-   * [Documentação da Arquitetura] (#Documentação da Arquitetura)
-   * [HOWTO - subida do serviço em ambiente local] (#HOWTO - subida do serviço em ambiente local)
-   * [Manual - Elasticsearch ] (#Manual - Elasticsearch )
-   * [Manual - Prometheus] (#Manual - Prometheus)
-   * [Manual = Grafana Dashboard] (#Manual - Grafana Dashboard)
+   * [Documentação do Projeto] (#Documentação-do-Projeto)
+   * [Dicionário de dados] (#Dicionário-de-dados)
+   * [Documentação das APIS] (#Documentação-das-APIS)
+   * [Documentação da Arquitetura] (#Documentação-da-Arquitetura)
+   * [HOWTO - subida do serviço em ambiente local] (#HOWTO---subida-do-serviço-em-ambiente-local)
+   * [Manual - Elasticsearch ] (#Manual---Elasticsearch )
+   * [Manual - Prometheus] (#Manual---Prometheus)
+   * [Manual - Grafana Dashboard] (#Manual---Grafana-Dashboard)
+<!--te-->
 
 ## Documentação do Projeto
 
