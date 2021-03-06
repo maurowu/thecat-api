@@ -170,8 +170,14 @@ Como estamos utilizando o Prometheus como fonte das métricas, devemos incluir e
 
 Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário importar a configuração nas opções Dashboard e depois Import.
 
-1. Dashboard de Quantidade de execução ~\projectDocuments\execucao_dashboard.json
-2. Dashboard de Quantidade de error ~\projectDocuments\erros_dashboard.json
-3. Dashboard de Latência ~\projectDocuments\execucao_dashboard.json
+1. [Dashboard de Quantidade de execução](~\projectDocuments\execucao_dashboard.json)
+2. [Dashboard de Quantidade de error](~\projectDocuments\erros_dashboard.json)
+3. [Dashboard de Latência](~\projectDocuments\execucao_dashboard.json)
 
+
+### Prints dos Dashboards
+
+![Example1 screenshot](./projectDocuments/qtdExec.PNG)
+![Example2 screenshot](./projectDocuments/qtdErrosExec.PNG)
+![Example3 screenshot](./projectDocuments/latencia.PNG)
 
