@@ -1,0 +1,61 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:file:~/data/h2
+    username: dev
+    password: dev123
+    driverClassName: org.h2.Driver
+    initialization-mode: always
+    
+cats:
+  breeds:
+    url: https://api.thecatapi.com/v1/breeds/
+  images:
+    url: https://api.thecatapi.com/v1/images/search
+    limit:
+      hats: 3
+      sunglasses: 3
+      nocategory: 3
+  categories:
+    hats: 1
+    sunglasses: 4
+  
+process:
+  scheduled:
+    dataloadcron: 0 */2 * ? * *
+    
+logging:
+  level:
+    root: ERROR
+    httpclient: 
+      wire:  ERROR
+    org:
+      apache:
+        http: ERROR
+
+server:
+  servlet:
+    context-path: /thecat
+
+camel:
+  component:
+    servlet: 
+      mapping:
+        contextPath: /api/*
+        
+  springboot:
+    main-run-controller: true
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

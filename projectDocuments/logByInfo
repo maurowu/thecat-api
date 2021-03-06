@@ -1,0 +1,100 @@
+Request:
+
+{
+  "query": 
+  {
+  "match": {"logLevel": "INFO"}
+  }
+}
+
+Response:
+
+{
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 6,
+            "relation": "eq"
+        },
+        "max_score": 2.3328903,
+        "hits": [
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "8481f1ab-b1c9-4b53-9bb9-1b4aecbea444",
+                "_score": 2.3328903,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "8481f1ab-b1c9-4b53-9bb9-1b4aecbea444",
+                    "dateTime": "2021-03-06T10:33:56.766959300",
+                    "logLevel": "INFO",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.ScheduledTasksImpl",
+                    "message": "Inicio da carga do banco de dados."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "89c34c0a-d541-4426-98c9-82d76f4ff82b",
+                "_score": 2.3328903,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "89c34c0a-d541-4426-98c9-82d76f4ff82b",
+                    "dateTime": "2021-03-06T10:34:16.270269600",
+                    "logLevel": "INFO",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.ScheduledTasksImpl",
+                    "message": "Fim da carga do banco de dados."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "ca355685-90eb-4c80-b30d-f79652eea70a",
+                "_score": 2.3328903,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "ca355685-90eb-4c80-b30d-f79652eea70a",
+                    "dateTime": "2021-03-06T10:34:17.237172400",
+                    "logLevel": "INFO",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.ScheduledTasksImpl",
+                    "message": "Fim da carga do banco de dados."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "d4ac3170-19f8-439d-b0de-6500e933c484",
+                "_score": 2.3328903,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "d4ac3170-19f8-439d-b0de-6500e933c484",
+                    "dateTime": "2021-03-06T10:34:00.014179400",
+                    "logLevel": "INFO",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.ScheduledTasksImpl",
+                    "message": "Inicio da carga do banco de dados."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "1c83e7a4-b0bd-4989-abbc-ad0bcdba0faa",
+                "_score": 2.3328903,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "1c83e7a4-b0bd-4989-abbc-ad0bcdba0faa",
+                    "dateTime": "2021-03-06T10:36:00.001145900",
+                    "logLevel": "INFO",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.ScheduledTasksImpl",
+                    "message": "Inicio da carga do banco de dados."
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,100 @@
+Request:
+
+{
+  "query": 
+  {
+  "match": {"logLevel": "DEBUG"}
+  }
+}
+
+Response:
+
+{
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 48,
+            "relation": "eq"
+        },
+        "max_score": 0.32312882,
+        "hits": [
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "c01eaa54-c607-4f48-afc2-cf1c37f23eec",
+                "_score": 0.32312882,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "c01eaa54-c607-4f48-afc2-cf1c37f23eec",
+                    "dateTime": "2021-03-06T10:35:34.899864900",
+                    "logLevel": "DEBUG",
+                    "sourceClass": "class br.com.itau.cre.thecat.processor.GetCatByOriginProcessor",
+                    "message": "Inicio processamento da api /thecat/api/v1/breed-by-origin."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "4f9550ae-965d-48ca-9bf2-a35ca586db58",
+                "_score": 0.32312882,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "4f9550ae-965d-48ca-9bf2-a35ca586db58",
+                    "dateTime": "2021-03-06T10:35:34.902863600",
+                    "logLevel": "DEBUG",
+                    "sourceClass": "class br.com.itau.cre.thecat.processor.GetCatByOriginProcessor",
+                    "message": "Fim processamento da api /thecat/api/v1/breed-by-origin."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "6ca17aa3-c73f-40ca-abae-5274ce067152",
+                "_score": 0.32312882,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "6ca17aa3-c73f-40ca-abae-5274ce067152",
+                    "dateTime": "2021-03-06T10:35:32.130775700",
+                    "logLevel": "DEBUG",
+                    "sourceClass": "class br.com.itau.cre.thecat.processor.GetCatByIdProcessor",
+                    "message": "Fim processamento da api /thecat/api/v1/breed."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "8a90eb63-992a-448b-a427-e1e1ac844f11",
+                "_score": 0.32312882,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "8a90eb63-992a-448b-a427-e1e1ac844f11",
+                    "dateTime": "2021-03-06T10:33:56.766959300",
+                    "logLevel": "DEBUG",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.DataLoaderImpl",
+                    "message": "Inicio no expurgo das imagens."
+                }
+            },
+            {
+                "_index": "thecatlog",
+                "_type": "_doc",
+                "_id": "3c4df32a-c972-4ab9-bd23-abdef6f2f29b",
+                "_score": 0.32312882,
+                "_source": {
+                    "_class": "br.com.itau.cre.thecat.model.LogMessage",
+                    "id": "3c4df32a-c972-4ab9-bd23-abdef6f2f29b",
+                    "dateTime": "2021-03-06T10:33:56.947481600",
+                    "logLevel": "DEBUG",
+                    "sourceClass": "class br.com.itau.cre.thecat.service.impl.DataLoaderImpl",
+                    "message": "Inicio da carga das racas de gatos."
+                }
+            }
+        ]
+    }
+}
