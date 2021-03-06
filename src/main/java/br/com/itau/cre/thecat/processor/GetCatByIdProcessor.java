@@ -27,7 +27,7 @@ public class GetCatByIdProcessor implements Processor {
 	public void process(Exchange exchange) throws Exception {
 		loggerUtils.log(Level.DEBUG, GetCatByIdProcessor.class.toString(),
 				"Inicio processamento da api /thecat/api/v1/breed-info-by-id.");
-		String catId = exchange.getMessage().getHeader("catID", String.class);
+		String catId = exchange.getMessage().getHeader("catId", String.class);
 		try {
 			Optional<CatsBreeds> response = catsBreedsRepository.findById(catId);
 			exchange.getMessage().setBody(response.get());

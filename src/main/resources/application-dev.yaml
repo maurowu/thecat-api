@@ -4,7 +4,11 @@ spring:
     properties:
       hibernate:
         show_sql: false
-        
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -25,10 +29,34 @@ cats:
     hats: 1
     sunglasses: 4
   
+process:
+  scheduled:
+    dataloadcron: 0 */2 * ? * *
+    
 logging:
   level:
+    root: INFO
     httpclient: 
-      wire:  DEBUG
+      wire:  INFO
     org:
       apache:
-        http: DEBUG
+        http: INFO
+
+server:
+  servlet:
+    context-path: /thecat
+
+camel:
+  component:
+    servlet: 
+      mapping:
+        contextPath: /api/*
+        
+  springboot:
+    main-run-controller: true
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

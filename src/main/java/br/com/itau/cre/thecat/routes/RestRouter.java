@@ -36,7 +36,7 @@ public class RestRouter extends RouteBuilder {
 			.get("/breed-info-by-id")
 			.description("Find breed info by cat ID")
 			.param()
-				.name("catID")
+				.name("catId")
 				.type(RestParamType.query)
 				.description("The id of the breed")
 			.endParam()

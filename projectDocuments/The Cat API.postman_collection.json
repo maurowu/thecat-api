@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "d5a1d63e-2487-45b2-947a-62d3291a12a4",
+		"name": "The Cat API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/breed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/thecat/api/v1/breed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"thecat",
+						"api",
+						"v1",
+						"breed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/breed-info-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/thecat/api/v1/breed-info-by-id?catID=abys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"thecat",
+						"api",
+						"v1",
+						"breed-info-by-id"
+					],
+					"query": [
+						{
+							"key": "catID",
+							"value": "abys"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/breed-by-origin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/thecat/api/v1/breed-by-origin?origin=Egypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"thecat",
+						"api",
+						"v1",
+						"breed-by-origin"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "Egypt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/breed-by-temperament",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/thecat/api/v1/breed-by-temperament?temperament=Active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"thecat",
+						"api",
+						"v1",
+						"breed-by-temperament"
+					],
+					"query": [
+						{
+							"key": "temperament",
+							"value": "Active"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
