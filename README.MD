@@ -5,13 +5,13 @@ Micro serviço que coleta as informações da API de gatos (https://thecatapi.co
 
 ## Índice
 * [Documentação do Projeto](#Documentação-do-Projeto)
-* [Dicionário de dados](#dados)
-* [Documentação das APIS](#APIS)
-* [Documentação da Arquitetura](#Arquitetura)
-* [HOWTO - subida do serviço em ambiente local](#HOWTO)
-* [Manual - Elasticsearch](#Elasticsearch)
-* [Manual - Prometheus](#Prometheus)
-* [Manual - Grafana](#Grafana)
+* [Dicionário de dados](#Dicionário-de-dados)
+* [Documentação das APIS](#Documentação-das-APIS)
+* [Documentação da Arquitetura](#Documentação-da-Arquitetura)
+* [HOWTO - subida do serviço em ambiente local](#HOWTO---subida-do-serviço-em-ambiente-local)
+* [Manual - Elasticsearch](#Manual---Elasticsearch)
+* [Manual - Prometheus](#Manual---Prometheus)
+* [Manual - Grafana](#Manual---Grafana)
 
 ## Documentação do Projeto
 
@@ -130,6 +130,32 @@ O serviço estará disponível no caminho "http://localhost:8080/thecat/".
 
 ## Manual - Elasticsearch 
 
+### Instalação
+
+Executar o comando "docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.11.1"
+
+A conexão para a ferramenta pode ser realizada via "localhost:9200".
+
+### Utilização
+
+Será utilizado o Elasticsearch como ferramenta de logs.
+Para a consulta dos logs, é necessário realizar uma requisição "GET" para o link "http://localhost:9200/thecatlog/_search?size=5", onde size é a quantidade de registros retornados pela requisição.
+A requição possui um corpo que podemos criar uma query para filtro da informações. Utilizaremos o exemplo de log level (INFO, ERROR, DEBUG, etc) conforme abaixo:
+```
+{
+  "query": 
+  {
+  "match": {"logLevel": "DEBUG"}
+  }
+}
+``` 
+
+### Evidências
+
+1. [Logs de INFO](./projectDocuments/logByInfo)
+2. [Logs de ERROR](./projectDocuments/logByError)
+3. [Logs de DEBUG](./projectDocuments/logByDebug)
+
 ## Manual - Prometheus
 
 ### Instalação
@@ -137,13 +163,14 @@ O serviço estará disponível no caminho "http://localhost:8080/thecat/".
 Criar um arquivo com o nome "prometheus.yml" onde será configurado o serviço que será obtidos as métricas.
 
 Exemplo:
-
+```
 scrape_configs:
   - job_name: 'spring_micrometer'
     metrics_path: '/thecat/actuator/prometheus'
     scrape_interval: 1s
     static_configs:
       - targets: ['IPDAMAQUINA:8080']
+```
 	  
 Trocar a palavra IPDAMAQUINA pelo IP de sua máquina.
 
@@ -157,7 +184,7 @@ O Prometheus irá subir localmente a partir do link "http://localhost:9090/".
 
 Será utilizado o "Micrometer" para enviar métricas para o Prometheus. A partir do link anterior, podemos listar as métricas e gerar gráficos obtidos no serviço thecat-api. Iremos utilizar o Grafana para gerar os dashboards com as métricas.
 
-## Manual - Grafana Dashboard
+## Manual - Grafana
 
 ### Instalação
 
