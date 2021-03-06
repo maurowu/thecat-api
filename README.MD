@@ -58,7 +58,7 @@ Retorna uma lista com todas as raças de gatos carregados no serviço.
 #### http://localhost:8080/thecat/api/v1/breed-info-by-id (Método GET)
 Retorna a raça de um gato a partir de um parâmetro de Id.
 Query param: catId
-Exemplo: http://localhost:8080/thecat/api/v1/breed-info-by-id?catID=abys
+Exemplo: http://localhost:8080/thecat/api/v1/breed-info-by-id?catId=abys
 
 **Response:**
 ```
