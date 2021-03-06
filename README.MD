@@ -247,7 +247,7 @@ Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário impor
 ![Example3 screenshot](./projectDocuments/latencia.PNG)
 
 ## Complementos
-1. [Coleção Postman - The Cat API](./projectDocuments/The Cat API.postman_collection.json)
+1. [Coleção Postman - The Cat API](./projectDocuments/TheCatAPI.postman_collection.json)
 2. [Coleção Postman - Elasticsearch](./projectDocuments/Elasticsearch.postman_collection.json)
 
 ## Contato
