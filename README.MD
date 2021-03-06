@@ -4,19 +4,20 @@ Micro serviço que coleta as informações da API de gatos (https://thecatapi.co
 
 ## Índice
 
-[Documentação do Projeto] (#Documentação do Projeto)
-[Dicionário de dados] (#Dicionário de dados)
-[Documentação das APIS] (#Documentação das APIS)
-[Documentação da Arquitetura] (#Documentação da Arquitetura)
-[HOWTO - subida do serviço em ambiente local] (#HOWTO - subida do serviço em ambiente local)
-[Manual - Elasticsearch ] (#Manual - Elasticsearch )
-[Manual - Prometheus] (#Manual - Prometheus)
-[Manual = Grafana Dashboard] (#Manual - Grafana Dashboard)
+<!--ts-->
+   * [Documentação do Projeto] (#Documentação do Projeto)
+   * [Dicionário de dados] (#Dicionário de dados)
+   * [Documentação das APIS] (#Documentação das APIS)
+   * [Documentação da Arquitetura] (#Documentação da Arquitetura)
+   * [HOWTO - subida do serviço em ambiente local] (#HOWTO - subida do serviço em ambiente local)
+   * [Manual - Elasticsearch ] (#Manual - Elasticsearch )
+   * [Manual - Prometheus] (#Manual - Prometheus)
+   * [Manual = Grafana Dashboard] (#Manual - Grafana Dashboard)
 
 ## Documentação do Projeto
 
 ## Dicionário de dados
-catId       -> ID da raça do gato
+catId       -> Id da raça do gato
 
 name        -> Nome da raça do gato
 
@@ -107,15 +108,16 @@ Exemplo: http://localhost:8080/thecat/api/v1/breed-by-temperament?temperament=Ac
 
 ## HOWTO - subida do serviço em ambiente local
 
-Caso utilize git, realizar o clone do projeto a partir do comando "git clone https://github.com/maurowu/thecat-api.git". Será baixado a branch default automaticamente (feature/0.0.1-SNAPSHOT) o qual será utilizada para a subida do serviço ou realize o download a partir do link "https://github.com/maurowu/thecat-api/tree/feature/0.0.1-SNAPSHOT".
+Caso utilize git, realizar o clone do projeto a partir do comando "git clone https://github.com/maurowu/thecat-api.git". Será baixado a branch default automaticamente (feature/0.0.1-SNAPSHOT) o qual será utilizada para a subida do serviço.
+Caso negativo, realize o download a partir do link "https://github.com/maurowu/thecat-api/tree/feature/0.0.1-SNAPSHOT".
 
 Os procedimentos a seguir devem ser realizados no diretório do projeto e possuir tanto o maven quanto o Docker instalados na máquina. O Docker precisa do serviço estar inicializado também.
 
-Execute o comando "mvn package" para a criação do executável ".JAR".
+1. Execute o comando "mvn package" para a criação do executável ".JAR".
 
-Execute o comando "docker image build -t thecat-api ." para gerar a imagem do serviço.
+2. Execute o comando "docker image build -t thecat-api ." para gerar a imagem do serviço.
 
-Execute o comando "docker run -p 8080:8080 -t docker.io/library/thecat-api" para inicializar o serviço com a configuração local.
+3. Execute o comando "docker run -p 8080:8080 -t docker.io/library/thecat-api" para inicializar o serviço com a configuração local.
 
 Temos a possibilidade de executar com o comando "docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" --env-file ./environment/dev/dev.env -t docker.io/library/thecat-api". Desta forma, podemos escolher o ambiente que será executado (dev, hml, pro), sendo necessário trocar a palavra no comando conforme necessário. Exemplo:
 
