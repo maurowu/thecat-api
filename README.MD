@@ -1,7 +1,5 @@
 # The Cat API
-
-Micro serviço que coleta as informações da API de gatos (https://thecatapi.com/), realiza a carga de dados (informações sobre a raça e imagens) e disponibiliza APIS de busca para consumo externo.
-
+Serviços de carga e disponibilização de raça, infomações e imagens de gatos.
 
 ## Índice
 * [Documentação do Projeto](#Documentação-do-Projeto)
@@ -12,10 +10,14 @@ Micro serviço que coleta as informações da API de gatos (https://thecatapi.co
 * [Manual - Elasticsearch](#Manual---Elasticsearch)
 * [Manual - Prometheus](#Manual---Prometheus)
 * [Manual - Grafana](#Manual---Grafana)
+* [Complementos](#Complementos)
+* [Contato](#Contato)
 
 ## Documentação do Projeto
-
-
+Micro serviço que coleta as informações da API de gatos (https://thecatapi.com/), realiza a carga em banco de dados (informações sobre a raça e imagens) e disponibiliza APIS de busca para consumo externo feito.
+O código é feito em JAVA 11 (SpringBoot), utilizando Apache Camel, Prometheus (Micrometer), Elasticsearch, banco de dados (H2 Local) de forma que funcione como micro serviço em contêiner (Docker).
+Foram criadas duas tabelas (CATS_BREEDS e CATS_IMAGES) e estas são criadas automaticamente durante a súbida da aplicação no banco de dados SQL H2 para execução local. Pode ser configurado o banco de dados conforme o ambiente (dev, hml, pro, etc).
+É utilizado o Grafana para visualização das métricas obtidas via Prometheus.
 
 ## Dicionário de dados
 catId       -> Id da raça do gato
@@ -106,6 +108,26 @@ Exemplo: http://localhost:8080/thecat/api/v1/breed-by-temperament?temperament=Ac
 ```
 
 ## Documentação da Arquitetura
+
+### Implementação do serviço
+O serviço foi implementado para que respeitasse padrões como:
+- Domain Driven Design em sua estrutura no qual cada implementação consta no seu contexto correto no qual pode ser como configuração do sistema, serviços de negócio, exposição de serviços, etc.
+- Test Driven Development e Behavior Driven Development durante a implementação dos testes unitários de forma que assegure o sistema e regras de negócio, mesmo que neste caso, sejam ínfimas.
+- Utilização de Apache Camel para melhoria da estrutura da API de forma que utilize padrões de integração (Enterprise Integration Patterns), mesmo que neste caso, foi utilizado apenas para expor os serviços REST e executar os mesmos.
+- Conceitos de SOLID para códigos mais limpos como princípio de responsabilidade única e segregação da interface.
+- Utilizar fatores citados nos "Doze fatores de aplicação" como base de código rastreável com controle de revisão e deploy, isolamento de depêndencias, armazenamento de configuraçòes via variáveis de ambiente, build e deploy facilitados, etc. Muitas destas beneficas para deploy em OPENSHIFT e/ou em Cloud Públic (exemplo: Elastic Kubernetes Service).
+
+A utilização de Prometheus para métricas e Elasticsearch para logs permite um melhor monitoramente e rastreamento do serviço (pilares da Observability). Utilizando estas ferramentas em conjunto com o Grafana, podemos reagir mais rápido a problemas e quantificar os mesmos.
+
+Foi utilizado o banco de dados H2 para facilitar o desenvolvimento, porém é possivel conectar em diferentes bancos conforme o ambiente, apenas alterando as variáveis de conexão para o mesmo. O H2 também permite facilitar a criação de testes funcionais envolvendo banco de dados.
+
+### Pontos de melhoria
+Melhorar a atomicidade do serviço devido a possível possibilidade de escalonamento do mesmo conforme a demanda. A realização da carga do banco de dados e sua atualização se situa mais em um processo batch.
+Separar a camada de API e serviço, ou seja, a API serve apenas como camada de integração (Backend for Frontend), elevando os ganhos na utilização do Apache Camel na integração com os demais serviços utilizando Apache Kafka. Os ganhos também são vistos na diminuição do acoplamento dos serviços e latência.
+
+### Resalvas
+O serviço é de baixa complexidade, sendo não necessário a utilização de muitos conceitos abordados, porém estes podem ser aplicados caso o mesmo sofra evoluções conforme o tempo.
+O serviço foi modelado para um escopo mais amplo, permitindo facilitação de alteração caso necessário.
 
 ## HOWTO - subida do serviço em ambiente local
 
@@ -224,3 +246,10 @@ Foi criado 3 dashboards conforme os arquivos abaixo. É apenas necessário impor
 #### Dashboard de Latência
 ![Example3 screenshot](./projectDocuments/latencia.PNG)
 
+## Complementos
+1. [Coleção Postman - The Cat API](./projectDocuments/The Cat API.postman_collection.json)
+2. [Coleção Postman - Elasticsearch](./projectDocuments/Elasticsearch.postman_collection.json)
+
+## Contato
+**Mauro Long Wu**
+**Email: maurolw90@gmail.com**
