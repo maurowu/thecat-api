@@ -115,7 +115,7 @@ O serviço foi implementado para que respeitasse padrões como:
 - Test Driven Development e Behavior Driven Development durante a implementação dos testes unitários de forma que assegure o sistema e regras de negócio, mesmo que neste caso, sejam ínfimas.
 - Utilização de Apache Camel para melhoria da estrutura da API de forma que utilize padrões de integração (Enterprise Integration Patterns), mesmo que neste caso, foi utilizado apenas para expor os serviços REST e executar os mesmos.
 - Conceitos de SOLID para códigos mais limpos como princípio de responsabilidade única e segregação da interface.
-- Utilizar fatores citados nos "Doze fatores de aplicação" como base de código rastreável com controle de revisão e deploy, isolamento de depêndencias, armazenamento de configuraçòes via variáveis de ambiente, build e deploy facilitados, etc. Muitas destas beneficas para deploy em OPENSHIFT e/ou em Cloud Públic (exemplo: Elastic Kubernetes Service).
+- Utilizar fatores citados nos "Doze fatores de aplicação" como base de código rastreável com controle de revisão e deploy, isolamento de depêndencias, armazenamento de configuraçòes via variáveis de ambiente, build e deploy facilitados, etc. Muitas destas beneficas para deploy em OPENSHIFT e/ou em Cloud Pública (exemplo: Elastic Kubernetes Service).
 
 A utilização de Prometheus para métricas e Elasticsearch para logs permite um melhor monitoramente e rastreamento do serviço (pilares da Observability). Utilizando estas ferramentas em conjunto com o Grafana, podemos reagir mais rápido a problemas e quantificar os mesmos.
 
@@ -125,7 +125,7 @@ Foi utilizado o banco de dados H2 para facilitar o desenvolvimento, porém é po
 Melhorar a atomicidade do serviço devido a possível possibilidade de escalonamento do mesmo conforme a demanda. A realização da carga do banco de dados e sua atualização se situa mais em um processo batch.
 Separar a camada de API e serviço, ou seja, a API serve apenas como camada de integração (Backend for Frontend), elevando os ganhos na utilização do Apache Camel na integração com os demais serviços utilizando Apache Kafka. Os ganhos também são vistos na diminuição do acoplamento dos serviços e latência.
 
-### Resalvas
+### Ressalvas
 O serviço é de baixa complexidade, sendo não necessário a utilização de muitos conceitos abordados, porém estes podem ser aplicados caso o mesmo sofra evoluções conforme o tempo.
 O serviço foi modelado para um escopo mais amplo, permitindo facilitação de alteração caso necessário.
 
